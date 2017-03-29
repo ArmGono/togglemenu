@@ -20,6 +20,12 @@
 ```javascript
 $('#my-menu-wrapper').toggleMenu();
 ```
+### Подключение
+```html
+ <link href="path_to_file/jquery.togglemenu.css" rel="stylesheet" />
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script src="path_to_file/jquery.togglemenu.min.js"></script>
+```
 
 ### Опции 
 
