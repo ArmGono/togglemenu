@@ -1,0 +1,61 @@
+.toggle-menu-wrap{
+
+}
+.toggle-menu-burger{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #000;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.toggle-menu-burger:before, .toggle-menu-burger:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  background: #000;
+}
+.toggle-menu-burger:before{
+  top: 50%;
+  margin-top: -2px;
+}
+
+.toggle-menu-burger:after{
+  bottom: 0;
+}
+
+.toggle-menu-mobile{
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 300;
+  background: #fff;
+  padding: 40px 20px;
+  width: 320px;
+  height: 100%;
+  overflow: auto;
+  transition: right ease 0.5s;
+  -webkit-transition: right ease 0.5s;
+  -moz-transition: right ease 0.5s;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.toggle-menu-mobile a{
+  color: #000;
+}
+.toggle-menu-mobile.toggle-menu-mobile-hide{
+  right: -320px;
+}
+
+.toggle-menu-close{
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
