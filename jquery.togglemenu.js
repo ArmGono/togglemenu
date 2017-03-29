@@ -15,7 +15,7 @@
       'breakpoint': 960,
       'title': 'Меню',
       'selector': 'ul.menu',
-      'burger': $('<i class="toggle-menu-burger"></i>'),
+      'burger': '<i class="toggle-menu-burger"></i>',
       'burgerStyles': {},
       'jsHide': true,
       'appendItems': false,
@@ -43,12 +43,12 @@
         settings.body.addClass('toggle-menu-is-mobile');
         settings.body.removeClass('toggle-menu-is-desktop');
         _toggleMenu.hide($obj);
-        _toggleMenu.show(settings.burger);
+        _toggleMenu.show(settings.burgerObject);
       } else {
         settings.body.removeClass('toggle-menu-is-mobile');
         settings.body.addClass('toggle-menu-is-desktop');
         _toggleMenu.show($obj);
-        _toggleMenu.hide(settings.burger);
+        _toggleMenu.hide(settings.burgerObject);
       }
     };
     _toggleMenu.append = function ($element, item) {
@@ -70,15 +70,15 @@
       if (settings.appendItems) {
         _toggleMenu.append($menu, settings.appendItems);
       }
-      var $burger = settings.burger;
+      settings.burgerObject = $(settings.burger);
       if (!$.isEmptyObject(settings.burgerStyles)) {
-        $burger.css(settings.burgerStyles);
+        settings.burgerObject.css(settings.burgerStyles);
       }
-      _toggleMenu.hide($burger);
+      _toggleMenu.hide(settings.burgerObject);
       if (!settings.burgerParent) {
-        $this.after($burger);
+        $this.after(settings.burgerObject);
       } else {
-        $burger.appendTo($(settings.burgerParent));
+        settings.burgerObject.appendTo($(settings.burgerParent));
       }
       $this.addClass('toggle-menu-wrap');
       var $mobileMenu = $('<div />').addClass('toggle-menu-mobile');
@@ -99,7 +99,7 @@
         $mobileMenu.addClass('toggle-menu-mobile-hide');
         settings.body.removeClass('toggle-menu-opened');
       }).resize();
-      $burger.on('click', function (e) {
+      settings.burgerObject.on('click', function (e) {
         e.preventDefault();
         $mobileMenu.toggleClass('toggle-menu-mobile-hide');
         settings.body.toggleClass('toggle-menu-opened');
