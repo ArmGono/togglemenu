@@ -23,6 +23,7 @@
       'burgerParent': false
     }, options);
     var _toggleMenu = {};
+    _toggleMenu.lastWidth = 0;
     _toggleMenu.hide = function ($item) {
       if (settings.jsHide) {
         $item.hide();
@@ -84,7 +85,7 @@
       var $mobileMenu = $('<div />').addClass('toggle-menu-mobile');
       var $content = $('<div id="toggle-menu-content"></div>');
       $mobileMenu.append('<div class="toggle-menu-title">' + settings.title + '</div>');
-      var $close = $('<a href="#close-menu" class="toggle-menu-close"><span>Закрыть</span></a>');
+      var $close = $('<a href="#close-menu" class="toggle-menu-close"><span class="glyphicon glyphicon-remove"></span></a>');
       $content.append($menu)
       if (!$.isEmptyObject(settings.appendBlock)) {
         $content.append(settings.appendBlock);
@@ -95,6 +96,10 @@
       var $window = $(window);
       $window.resize(function () {
         var width = $window.width();
+        if(width === _toggleMenu.lastWidth) {
+          return;
+        }
+        _toggleMenu.lastWidth = width;
         _toggleMenu.check($this, $window.width());
         $mobileMenu.addClass('toggle-menu-mobile-hide');
         settings.body.removeClass('toggle-menu-opened');
@@ -112,3 +117,4 @@
     });
   };
 })(jQuery, window);
+
